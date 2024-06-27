@@ -15,23 +15,20 @@
 
 #!/usr/bin/bash
 
-set -eE
-# Prevent perl from complaining a lot, but also remove any unexpected side-effects
-# of $LANG varying between build hosts
-export LANG=C
+set -eE  # 开启脚本的错误退出和错误处理
+export LANG=C  # 设置语言环境为C，防止因语言环境不同引起的问题
 
-SCRIPTNAME=$(basename $0)
-export SCRIPT_HOME=$(dirname $(readlink -f $0))
+SCRIPTNAME=$(basename $0)  # 获取脚本名称
+export SCRIPT_HOME=$(dirname $(readlink -f $0))  # 获取脚本所在目录的绝对路径
 
 if [ -d /usr/share/CreateImage ]; then
-  # we have been installed in /usr
-  export _PREFIX=$SCRIPT_HOME/../share/CreateImage
+  export _PREFIX=$SCRIPT_HOME/../share/CreateImage  # 如果已安装在/usr目录下，设置前缀路径
 else
-  # we have not been installed in any way
-  export _PREFIX=$SCRIPT_HOME/..
+  export _PREFIX=$SCRIPT_HOME/..  # 否则设置前缀路径为上级目录
 fi
-export _LIB=$_PREFIX/lib
-source $_LIB/die
+
+export _LIB=$_PREFIX/lib  # 设置库路径
+source $_LIB/die  # 加载die脚本
 
 function show_options () {
     cat << EOF
@@ -42,14 +39,14 @@ Options:
     -v,--version    display version and exit
     -r              obs repos source for mirroring
 EOF
-}
+}  # 定义显示帮助信息的函数
 
 function show_version() {
-    cat $_PREFIX/version
+    cat $_PREFIX/version  # 显示版本信息
     exit 0
 }
 
-# Display the current file/function/line in the debug output
+# 显示当前文件/函数/行号的调试输出
 function _ps4 {
   IFS=" " called=($(caller 0))
   local f=$(readlink -f ${called[2]})
@@ -58,51 +55,51 @@ function _ps4 {
 export -f _ps4
 export PS4='+ $(_ps4):   '
 
-source $_LIB/utils
+source $_LIB/utils  # 加载utils脚本
 
-REPOFILE="/tmp/_HMI_repos"
-ISO=
-REPODIR=
-NAME=system.img
-ROOT_PWD='''$6$o4rTi3d/.hh6JUYC$ClnCxd2mAQHlt0UloC4ystQg0CiuSVyhXz0sP1mDCNCgWV0rBwegwJ/bCWfjN4WxbahDa7F9U3c6/vFaNgsvX/'''
-PKGS_LIST="$_PREFIX/config/rpmlist"
+REPOFILE="/tmp/_HMI_repos"  # 定义临时文件路径
+ISO=  # 定义ISO变量
+REPODIR=  # 定义REPODIR变量
+NAME=system.img  # 定义镜像名称
+ROOT_PWD='''$6$o4rTi3d/.hh6JUYC$ClnCxd2mAQHlt0UloC4ystQg0CiuSVyhXz0sP1mDCNCgWV0rBwegwJ/bCWfjN4WxbahDa7F9U3c6/vFaNgsvX/'''  # 定义默认root密码
+PKGS_LIST="$_PREFIX/config/rpmlist"  # 定义包列表路径
 
-ARCH=`arch`
+ARCH=`arch`  # 获取系统架构
 
-[ -f $REPOFILE ] && rm -rf $REPOFILE
+[ -f $REPOFILE ] && rm -rf $REPOFILE  # 如果存在临时文件则删除
 
-if [ "$#" -eq 1 ];then
+if [ "$#" -eq 1 ];then  # 如果参数个数为1
     case $1 in
     -h|--help)
-       show_options
+       show_options  # 显示帮助信息
        exit 0;;
     -v|--version)
-       show_version;;
+       show_version;;  # 显示版本信息
     *)
        echo "error: params is invalid,please check it."
        show_options
-       exit 1;;
+       exit 1;;  # 参数无效，退出
     esac
 elif [ "$#" -gt 1 ];then 
     while getopts ":s::r::d::n:p:l:" opt
     do
         case $opt in
         s)
-          ISO="$OPTARG";;
+          ISO="$OPTARG";;  # 获取ISO参数
         d)
-     	  REPODIR="$OPTARG";;
+     	  REPODIR="$OPTARG";;  # 获取REPODIR参数
   	r)
-    	  echo "$OPTARG" >> $REPOFILE;;
+    	  echo "$OPTARG" >> $REPOFILE;;  # 将参数写入临时文件
   	n)
-          NAME="$OPTARG".img;;
+          NAME="$OPTARG".img;;  # 获取镜像名称
         p)
-          ROOT_PWD="$OPTARG";;
+          ROOT_PWD="$OPTARG";;  # 获取root密码
         l)
-          PKGS_LIST="$OPTARG";;
+          PKGS_LIST="$OPTARG";;  # 获取包列表路径
 	*)
     	  echo "error: params is invalid,please check it."
     	  show_options
-          exit 1;;
+          exit 1;;  # 参数无效，退出
         esac
     done
     set +eE
@@ -110,159 +107,153 @@ elif [ "$#" -gt 1 ];then
     if [ "$?" -ne 0 ];then
         echo "error: params is invalid,please check it."
         show_options
-        exit 1
+        exit 1  # 参数无效，退出
     fi
     set -eE
 else
     echo "warning: params is none,please reference help information."
     show_options
-    exit 0
+    exit 0  # 无参数，显示帮助信息
 fi
 
-[ ! -f $ISO ] && [ ! -f $REPOFILE] && show_options && exit 1
+[ ! -f $ISO ] && [ ! -f $REPOFILE] && show_options && exit 1  # 如果ISO文件或临时文件不存在，显示帮助信息并退出
 
-export ISO
-export REPOFILE
-export NAME
-export ROOT_PWD
-export PKGS_LIST
-export ARCH
-export REPODIR
+export ISO  # 导出ISO变量
+export REPOFILE  # 导出REPOFILE变量
+export NAME  # 导出NAME变量
+export ROOT_PWD  # 导出ROOT_PWD变量
+export PKGS_LIST  # 导出PKGS_LIST变量
+export ARCH  # 导出ARCH变量
+export REPODIR  # 导出REPODIR变量
 
-create_workspace
+create_workspace  # 创建工作空间
 
-create_env
+create_env  # 创建环境
 
-run_hook_in_root pre-install
+run_hook_in_root pre-install  # 在root环境中运行pre-install钩子
 
-run_hook_in_root install
+run_hook_in_root install  # 在root环境中运行install钩子
 
-run_hook_in_root post_install
+run_hook_in_root post_install  # 在root环境中运行post_install钩子
 
-# ensure we do not have a lost+found directory in the root folder
-# that could cause copy to fail (it will be created again later
-# when creating the file system, if it needs such directory)
+# 确保根文件夹中没有lost+found目录，否则可能导致复制失败（稍后在创建文件系统时会重新创建该目录）
 if [ -e "${WORKSPACE_DIR}/mnt/lost+found" ]; then
     sudo rm -rf "${WORKSPACE_DIR}/mnt/lost+found"
 fi
-# Free up /mnt
-unmount_mnt
-mv ${WORKSPACE_DIR}/mnt ${WORKSPACE_DIR}/built
 
-# umount mount ISO FILE
+unmount_mnt  # 释放/mnt目录
+mv ${WORKSPACE_DIR}/mnt ${WORKSPACE_DIR}/built  # 移动mnt目录到built目录
+
+# 卸载ISO文件
 [ "X$ISO" != "X" ] && umount /mnt
 
-IMG_SIZE=3
+IMG_SIZE=3  # 定义镜像大小
 
-/usr/bin/qemu-img create ${NAME} ${IMG_SIZE}G
-/usr/sbin/parted ${NAME} -- mklabel msdos
+/usr/bin/qemu-img create ${NAME} ${IMG_SIZE}G  # 创建镜像文件
+/usr/sbin/parted ${NAME} -- mklabel msdos  # 使用msdos分区表
 
 if [ $ARCH == "x86_64" ]; then
 
-    /usr/sbin/parted ${NAME} -- mkpart primary ext4 0% 100%
+    /usr/sbin/parted ${NAME} -- mkpart primary ext4 0% 100%  # 创建ext4分区
 
 elif [ $ARCH == "aarch64" ]; then
 
-    /usr/sbin/parted ${NAME} -- mkpart primary fat16 0% 5%
-    /usr/sbin/parted ${NAME} -- mkpart primary ext4 5% 100%
+    /usr/sbin/parted ${NAME} -- mkpart primary fat16 0% 5%  # 创建fat16分区
+    /usr/sbin/parted ${NAME} -- mkpart primary ext4 5% 100%  # 创建ext4分区
 
 elif [ $ARCH == "riscv64" ]; then
 
-    /usr/sbin/parted ${NAME} -- mkpart primary ext4 0% 512MB
-    /usr/sbin/parted ${NAME} -- mkpart primary ext4 512MB 100%
+    /usr/sbin/parted ${NAME} -- mkpart primary ext4 0% 512MB  # 创建第一个ext4分区
+    /usr/sbin/parted ${NAME} -- mkpart primary ext4 512MB 100%  # 创建第二个ext4分区
 
 fi
 
-export DEVICE=`losetup -f`
-num=$(echo $DEVICE | awk -F 'loop' '{print $2}')
-rm -rf "/dev/loop${num}"
-mknod $DEVICE b 7 $num
-/usr/sbin/losetup ${DEVICE} ${NAME}
+export DEVICE=`losetup -f`  # 获取未使用的环回设备
+num=$(echo $DEVICE | awk -F 'loop' '{print $2}')  # 获取环回设备编号
+rm -rf "/dev/loop${num}"  # 删除原有设备节点
+mknod $DEVICE b 7 $num  # 创建新的设备节点
+/usr/sbin/losetup ${DEVICE} ${NAME}  # 绑定环回设备到镜像文件
 
-offset=`fdisk -l ${NAME} | grep "${NAME}1" | awk '{print $2}'`
-sizelimit=`fdisk -l ${NAME} | grep "${NAME}1" | awk '{print $3}'`
-sizelimit=`echo "($sizelimit - $offset)*512" | bc`
-offset=`echo "${offset}*512" | bc`
+offset=`fdisk -l ${NAME} | grep "${NAME}1" | awk '{print $2}'`  # 获取第一个分区的起始位置
+sizelimit=`fdisk -l ${NAME} | grep "${NAME}1" | awk '{print $3}'`  # 获取第一个分区的大小
+sizelimit=`echo "($sizelimit - $offset)*512" | bc`  # 计算第一个分区的大小（字节）
+offset=`echo "${offset}*512" | bc`  # 计算第一个分区的起始位置（字节）
 
 if [ $ARCH == "aarch64" ]; then
 
-    export BOOT=`losetup -f`
-    num=$(echo $BOOT | awk -F 'loop' '{print $2}')
-    rm -rf "/dev/loop${num}"
-    mknod $BOOT b 7 $num
-    /usr/sbin/losetup -o ${offset} --sizelimit ${sizelimit} ${BOOT} ${NAME}
-    /usr/sbin/mkfs.vfat $BOOT
+    export BOOT=`losetup -f`  # 获取未使用的环回设备
+    num=$(echo $BOOT | awk -F 'loop' '{print $2}')  # 获取环回设备编号
+    rm -rf "/dev/loop${num}"  # 删除原有设备节点
+    mknod $BOOT b 7 $num  # 创建新的设备节点
+    /usr/sbin/losetup -o ${offset} --sizelimit ${sizelimit} ${BOOT} ${NAME}  # 绑定环回设备到镜像文件的第一个分区
+    /usr/sbin/mkfs.vfat $BOOT  # 格式化第一个分区为vfat
 
-    offset=`fdisk -l ${NAME} | grep "${NAME}2" | awk '{print $2}'`
-    sizelimit=`fdisk -l ${NAME} | grep "${NAME}2" | awk '{print $3}'`
-    sizelimit=`echo "($sizelimit - $offset)*512" | bc`
-    offset=`echo "${offset}*512" | bc`
+    offset=`fdisk -l ${NAME} | grep "${NAME}2" | awk '{print $2}'`  # 获取第二个分区的起始位置
+    sizelimit=`fdisk -l ${NAME} | grep "${NAME}2" | awk '{print $3}'`  # 获取第二个分区的大小
+    sizelimit=`echo "($sizelimit - $offset)*512" | bc`  # 计算第二个分区的大小（字节）
+    offset=`echo "${offset}*512" | bc`  # 计算第二个分区的起始位置（字节）
 
 fi
 
 if [ $ARCH == "riscv64" ]; then
 
-    export BOOT=`losetup -f`
-    num=$(echo $BOOT | awk -F 'loop' '{print $2}')
-    rm -rf "/dev/loop${num}"
-    mknod $BOOT b 7 $num
-    /usr/sbin/losetup -o ${offset} --sizelimit ${sizelimit} ${BOOT} ${NAME}
-    /usr/sbin/mkfs.ext4 ${BOOT}
+    export BOOT=`losetup -f`  # 获取未使用的环回设备
+    num=$(echo $BOOT | awk -F 'loop' '{print $2}')  # 获取环回设备编号
+    rm -rf "/dev/loop${num}"  # 删除原有设备节点
+    mknod $BOOT b 7 $num  # 创建新的设备节点
+    /usr/sbin/losetup -o ${offset} --sizelimit ${sizelimit} ${BOOT} ${NAME}  # 绑定环回设备到镜像文件的第一个分区
+    /usr/sbin/mkfs.ext4 ${BOOT}  # 格式化第一个分区为ext4
 
-    offset=`fdisk -l ${NAME} | grep "${NAME}2" | awk '{print $2}'`
-    sizelimit=`fdisk -l ${NAME} | grep "${NAME}2" | awk '{print $3}'`
-    sizelimit=`echo "($sizelimit - $offset)*512" | bc`
-    offset=`echo "${offset}*512" | bc`
+    offset=`fdisk -l ${NAME} | grep "${NAME}2" | awk '{print $2}'`  # 获取第二个分区的起始位置
+    sizelimit=`fdisk -l ${NAME} | grep "${NAME}2" | awk '{print $3}'`  # 获取第二个分区的大小
+    sizelimit=`echo "($sizelimit - $offset)*512" | bc`  # 计算第二个分区的大小（字节）
+    offset=`echo "${offset}*512" | bc`  # 计算第二个分区的起始位置（字节）
 
 fi
 
-export ROOT=`losetup -f`
-num=$(echo $ROOT | awk -F 'loop' '{print $2}')
-rm -rf "/dev/loop${num}"
-mknod $ROOT b 7 $num
-export ROOT_FS_UUID=$(uuidgen -r)
-/usr/sbin/losetup -o ${offset} --sizelimit ${sizelimit} ${ROOT} ${NAME}
-/usr/sbin/mkfs.ext4 -L "rootfs" ${ROOT}
-/sbin/tune2fs -U ${ROOT_FS_UUID} ${ROOT}
+export ROOT=`losetup -f`  # 获取未使用的环回设备
+num=$(echo $ROOT | awk -F 'loop' '{print $2}')  # 获取环回设备编号
+rm -rf "/dev/loop${num}"  # 删除原有设备节点
+mknod $ROOT b 7 $num  # 创建新的设备节点
+export ROOT_FS_UUID=$(uuidgen -r)  # 生成一个新的UUID
+/usr/sbin/losetup -o ${offset} --sizelimit ${sizelimit} ${ROOT} ${NAME}  # 绑定环回设备到镜像文件的第二个分区
+/usr/sbin/mkfs.ext4 -L "rootfs" ${ROOT}  # 格式化第二个分区为ext4并设置卷标
+/sbin/tune2fs -U ${ROOT_FS_UUID} ${ROOT}  # 设置UUID
 
-mkdir -p ${WORKSPACE_DIR}/mnt
-mount -t ext4 ${ROOT} ${MOUNT_WORKSPACE_DIR}
-rm -rf "${MOUNT_WORKSPACE_DIR}/lost+found"
+mkdir -p ${WORKSPACE_DIR}/mnt  # 创建mnt目录
+mount -t ext4 ${ROOT} ${MOUNT_WORKSPACE_DIR}  # 挂载根分区到工作目录
+rm -rf "${MOUNT_WORKSPACE_DIR}/lost+found"  # 删除lost+found目录
 
 if [ $ARCH == "aarch64" ]; then
-    mkdir -p ${MOUNT_WORKSPACE_DIR}/boot
-    chmod 755 ${MOUNT_WORKSPACE_DIR}/boot
-    mount -t vfat ${BOOT} ${MOUNT_WORKSPACE_DIR}/boot
-    export BOOT_UUID=$(blkid -s UUID -o value ${BOOT})
-    mv -f ${WORKSPACE_DIR}/built/boot/* ${MOUNT_WORKSPACE_DIR}/boot/ || true
-    [ -d ${WORKSPACE_DIR}/built/boot/ ] && rm -rf ${WORKSPACE_DIR}/built/boot/
+    mkdir -p ${MOUNT_WORKSPACE_DIR}/boot  # 创建boot目录
+    chmod 755 ${MOUNT_WORKSPACE_DIR}/boot  # 设置权限
+    mount -t vfat ${BOOT} ${MOUNT_WORKSPACE_DIR}/boot  # 挂载boot分区
+    export BOOT_UUID=$(blkid -s UUID -o value ${BOOT})  # 获取boot分区的UUID
+    mv -f ${WORKSPACE_DIR}/built/boot/* ${MOUNT_WORKSPACE_DIR}/boot/ || true  # 移动boot目录内容
+    [ -d ${WORKSPACE_DIR}/built/boot/ ] && rm -rf ${WORKSPACE_DIR}/built/boot/  # 删除原boot目录
 fi
 
 if [ $ARCH == "riscv64" ]; then
 
-    mkdir -p ${WORKSPACE_DIR}/mnt/boot
-    chmod 755 ${WORKSPACE_DIR}/mnt/boot
-    mount -t ext4 -o loop ${BOOT} ${MOUNT_WORKSPACE_DIR}/boot
-    rm -rf "${MOUNT_WORKSPACE_DIR}/boot/lost+found"
-    export BOOT_UUID=$(blkid -s UUID -o value ${BOOT})
-    mv -f ${WORKSPACE_DIR}/built/boot/* ${MOUNT_WORKSPACE_DIR}/boot/ || true
-    [ -d ${WORKSPACE_DIR}/built/boot/ ] && rm -rf ${WORKSPACE_DIR}/built/boot/
+    mkdir -p ${WORKSPACE_DIR}/mnt/boot  # 创建boot目录
+    chmod 755 ${WORKSPACE_DIR}/mnt/boot  # 设置权限
+    mount -t ext4 -o loop ${BOOT} ${MOUNT_WORKSPACE_DIR}/boot  # 挂载boot分区
+    rm -rf "${MOUNT_WORKSPACE_DIR}/boot/lost+found"  # 删除lost+found目录
+    export BOOT_UUID=$(blkid -s UUID -o value ${BOOT})  # 获取boot分区的UUID
+    mv -f ${WORKSPACE_DIR}/built/boot/* ${MOUNT_WORKSPACE_DIR}/boot/ || true  # 移动boot目录内容
+    [ -d ${WORKSPACE_DIR}/built/boot/ ] && rm -rf ${WORKSPACE_DIR}/built/boot/  # 删除原boot目录
 
 fi
 
-sudo mv -t ${WORKSPACE_DIR}/mnt ${WORKSPACE_DIR}/built/* || true
+sudo mv -t ${WORKSPACE_DIR}/mnt ${WORKSPACE_DIR}/built/* || true  # 移动built目录内容到mnt
 
-mount_dir
-run_hook_in_root finalise
-remove_workspace
+mount_dir  # 挂载目录
+run_hook_in_root finalise  # 在root环境中运行finalise钩子
+remove_workspace  # 删除工作空间
 
-fstrim_mnt
-# Unmount and cleanup the /mnt and /build subdirectories, to save
-# space before converting the image to some other format.
-unmount_mnt
-remove_env
-/usr/sbin/losetup -D
+fstrim_mnt  # 修剪mnt目录
+unmount_mnt  # 释放/mnt目录
+remove_env  # 删除环境
+/usr/sbin/losetup -D  # 解除所有环回设备
 
-# All done
-exit 0
-
+exit 0  # 脚本执行结束

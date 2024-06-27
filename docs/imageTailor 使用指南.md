@@ -867,8 +867,8 @@ GRUB_CMDLINE_LINUX="net.ifnames=0 biosdevname=0 crashkernel=512M oops=panic soft
 
 | 参数名称 | 是否必选 | 参数含义                                                     | 取值范围                                                     |
 | -------- | -------- | ------------------------------------------------------- | ------------------------------------------------------------ |
-| -p       | 是       | 设置产品名称                                                | openEuler | docker | EMB_rootfs | qcow2                    |
-| c        | 是       | 指定配置文件的相对路径                                       | custom/cfg_openEuler | custom/cfg_docker | custom/cfg_EMB_rootfs | custom/cfg_qcow2 |
+| -p       | 是       | 设置产品名称                                                | openEuler, docker, EMB_rootfs, qcow2                    |
+| c        | 是       | 指定配置文件的相对路径                                       | custom/cfg_openEuler, custom/cfg_docker, custom/cfg_EMB_rootfs, custom/cfg_qcow2 |
 | --minios | 否       | 制作在系统安装时进行系统引导的 initrd                        | 默认为 yes<br>yes：第一次执行命令时会制作 initrd，之后执行命令会判断 'usr_install/boot' <br>目录下是否存在 initrd（sha256 校验）。如果存在，就不重新制作 initrd，否则制作 initrd 。<br>no：不制作 initrd，采用原有方式，系统引导和运行使用的 initrd 相同。<br>force：强制制作 initrd，不管 'usr_install/boot' 目录下是否存在 initrd。 |
 | --sec    | 否       | 是否对生成的 ISO 进行安全加固<br>如果用户不输入该参数，则由此造成的安全风险由用户承担 | 无                                                           |
 | -h       | 否       | 获取帮助信息                                                 | 无                                                           |
