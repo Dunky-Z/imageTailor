@@ -102,10 +102,10 @@ function create_env() {
 # 挂载必要的系统目录
 function mount_dir() {
     mkdir -p ${MOUNT_WORKSPACE_DIR}/sys ${MOUNT_WORKSPACE_DIR}/dev/pts ${MOUNT_WORKSPACE_DIR}/proc
-    mount -t proc none ${MOUNT_WORKSPACE_DIR}/sys
+    mount -t sysfs none ${MOUNT_WORKSPACE_DIR}/sys
     mount --bind /dev ${MOUNT_WORKSPACE_DIR}/dev
     mount --bind /dev/pts ${MOUNT_WORKSPACE_DIR}/dev/pts
-    mount -t sysfs none ${MOUNT_WORKSPACE_DIR}/proc
+    mount -t proc none ${MOUNT_WORKSPACE_DIR}/proc
 }
 
 # 卸载目录
@@ -153,6 +153,7 @@ function run_in_root() {
     export HOME=${ORIG_HOME}
 }
 
+TODO: 和run_hook函数有重复，可以优化
 # 在根文件系统中运行钩子脚本
 function run_hook_in_root() {
     copy_hooks2workspace

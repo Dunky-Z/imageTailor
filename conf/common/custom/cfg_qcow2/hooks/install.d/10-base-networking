@@ -15,16 +15,16 @@
 
 #!/bin/bash
 
+# 如果环境变量 DIB_DEBUG_TRACE 设置的值大于0，则启用调试模式
 if [ "${DIB_DEBUG_TRACE:-0}" -gt 0 ]; then
-    set -x
+    set -x  # 启用命令跟踪
 fi
-set -eu
-set -o pipefail
+set -eu  # 设置选项：遇到未定义变量时退出脚本；命令出错时退出脚本
+set -o pipefail  # 设置管道中任何命令失败时整个管道都失败
 
+# 使用 here 文档写入配置文件 /etc/sysconfig/network
 cat << EOF | tee /etc/sysconfig/network > /dev/null
 NETWORKING=yes
 NETWORKING_IPV6=yes
 NOZEROCONF=yes
 EOF
-
-

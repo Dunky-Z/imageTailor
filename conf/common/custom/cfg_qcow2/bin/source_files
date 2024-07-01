@@ -12,16 +12,15 @@
  * Create: 2023-05-05
  * Description: provide qcow2 source
 !
-
 #!/bin/bash
 
-regex=${RUN_PARTS_REGEX:-"^[0-9A-Za-z_-]+$"}
-show_list_sign=""
+regex=${RUN_PARTS_REGEX:-"^[0-9A-Za-z_-]+$"}  # 设置正则表达式匹配规则，如果未定义则使用默认值
+show_list_sign=""  # 初始化变量，用于指示是否需要显示文件列表
 
-set -ue
-set -o pipefail
+set -ue  # 设置选项：遇到未定义变量时退出脚本；命令出错时退出脚本
+set -o pipefail  # 设置管道中任何命令失败时整个管道都失败
 
-name=$(basename $0)
+name=$(basename $0)  # 获取脚本名称
 
 function usage() {
     cat << EOF
@@ -33,81 +32,79 @@ Examples:
       source_file --list hooks/root.d/
       source_file hooks/root.d/
 EOF
-}
+}  # 定义使用帮助信息函数
 
 function source_env() {
-    local dir=${target_dir}/../environment.d
+    local dir=${target_dir}/../environment.d  # 设置环境变量目录
 
-    if [[ -d ${dir} ]] ; then
-        local env_files=$(find ${dir} -maxdepth 1 -xtype f | grep -E "/[0-9A-Za-z_\.-]+$" | LANG=C sort -n)
-        for env_file in ${env_files} ; do
-            source ${env_file}
+    if [[ -d ${dir} ]] ; then  # 如果目录存在
+        local env_files=$(find ${dir} -maxdepth 1 -xtype f | grep -E "/[0-9A-Za-z_\.-]+$" | LANG=C sort -n)  # 查找目录中的所有文件并按名称排序
+        for env_file in ${env_files} ; do  # 遍历找到的文件
+            source ${env_file}  # 逐个导入环境变量文件
         done
     fi
-}
+}  # 定义导入环境变量函数
 
 function print_format() {
-    local FORMAT="$1"
-    shift
-    printf "${FORMAT}" "$@" >&2
-}
+    local FORMAT="$1"  # 获取格式字符串
+    shift  # 移动参数指针
+    printf "${FORMAT}" "$@" >&2  # 使用格式字符串打印参数到标准错误输出
+}  # 定义格式化打印函数
 
 function main() {
-    if [ $# -lt 1 ] ; then
-        usage
+    if [ $# -lt 1 ] ; then  # 如果参数少于1个
+        usage  # 显示使用帮助信息
     fi
 
-    if [ "$1" == "--list" ] ; then
-        show_list_sign="1"
-        shift
+    if [ "$1" == "--list" ] ; then  # 如果第一个参数是 --list
+        show_list_sign="1"  # 设置显示列表标志
+        shift  # 移动参数指针
     fi
 
-    target_dir="${1:-}"
+    target_dir="${1:-}"  # 获取目标目录
 
-    if ! [[ -d ${target_dir} ]] ; then
-        echo "${target_dir} is not a directory"
-        usage
-        exit 1
+    if ! [[ -d ${target_dir} ]] ; then  # 如果目标目录不存在
+        echo "${target_dir} is not a directory"  # 打印错误信息
+        usage  # 显示使用帮助信息
+        exit 1  # 退出并返回错误码
     fi
 
+    targets=$(find ${target_dir} -maxdepth 1 -xtype f -executable -printf '%f\n' | grep -E "${regex}" | LANG=C sort -n || echo "")  # 查找目标目录中的可执行文件并按名称排序
 
-    targets=$(find ${target_dir} -maxdepth 1 -xtype f -executable -printf '%f\n' | grep -E "${regex}" | LANG=C sort -n || echo "")
-
-    if [ "${show_list_sign}" == "1" ] ; then
-        for target in $targets ; do
-            echo "${target_dir}/${target}"
+    if [ "${show_list_sign}" == "1" ] ; then  # 如果设置了显示列表标志
+        for target in $targets ; do  # 遍历找到的文件
+            echo "${target_dir}/${target}"  # 打印文件路径
         done
-        exit 0
+        exit 0  # 退出并返回成功码
     fi
 
-    PROFILE_DIR=$(mktemp -d --tmpdir profiledir.XXXXXX)
+    PROFILE_DIR=$(mktemp -d --tmpdir profiledir.XXXXXX)  # 创建临时目录用于存储性能分析数据
 
+    source_env  # 导入环境变量
 
-    source_env
-
-    for target in ${targets} ; do
-        echo "start ${target_dir}/${target}"
-        target_tag=${target//\//_}
-        date +%s.%N > ${PROFILE_DIR}/profile_start_${target_tag}
-        ${target_dir}/$target
-        target_tag=${target//\//_}
-        date +%s.%N > ${PROFILE_DIR}/profile_stop_${target_tag}
-        echo "${target} completed"
+    for target in ${targets} ; do  # 遍历找到的目标文件
+        echo "start ${target_dir}/${target}"  # 打印开始信息
+        target_tag=${target//\//_}  # 替换文件路径中的斜杠为下划线
+        date +%s.%N > ${PROFILE_DIR}/profile_start_${target_tag}  # 记录开始时间
+        ${target_dir}/$target  # 执行目标文件
+        target_tag=${target//\//_}  # 再次替换文件路径中的斜杠为下划线
+        date +%s.%N > ${PROFILE_DIR}/profile_stop_${target_tag}  # 记录结束时间
+        echo "${target} completed"  # 打印完成信息
     done
 
-    echo "profiling"
-    echo "target: $(basename ${target_dir})"
-    pushd ${PROFILE_DIR}
-        for start_file_name in $(find . -name 'profile_start_*' -printf '%f\n' | env LC_ALL=C sort -n) ; do
-            stop_file_name=profile_stop_${start_file_name##profile_start_}
-            start_seconds=$(cat ${start_file_name})
-            stop_seconds=$(cat ${stop_file_name})
-            duration=$(echo - | awk "{ print ${stop_seconds} - ${start_seconds} }")
-            LC_NUMERIC=C LC_ALL=C print_format "%-40s %10.3f\n" ${start_file_name##profile_start_} $duration
+    echo "profiling"  # 打印性能分析信息
+    echo "target: $(basename ${target_dir})"  # 打印目标目录的基名称
+    pushd ${PROFILE_DIR}  # 切换到临时目录
+        for start_file_name in $(find . -name 'profile_start_*' -printf '%f\n' | env LC_ALL=C sort -n) ; do  # 查找所有开始时间文件并按名称排序
+            stop_file_name=profile_stop_${start_file_name##profile_start_}  # 获取对应的结束时间文件名
+            start_seconds=$(cat ${start_file_name})  # 读取开始时间
+            stop_seconds=$(cat ${stop_file_name})  # 读取结束时间
+            duration=$(echo - | awk "{ print ${stop_seconds} - ${start_seconds} }")  # 计算持续时间
+            LC_NUMERIC=C LC_ALL=C print_format "%-40s %10.3f\n" ${start_file_name##profile_start_} $duration  # 格式化打印文件名和持续时间
         done
-    popd
-    rm -rf ${PROFILE_DIR}
-    echo "end profiling"
+    popd  # 返回之前的目录
+    rm -rf ${PROFILE_DIR}  # 删除临时目录
+    echo "end profiling"  # 打印性能分析结束信息
 }
 
-main "$@"
+main "$@"  # 调用主函数，传递所有参数
