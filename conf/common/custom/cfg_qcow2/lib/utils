@@ -24,7 +24,7 @@ function copy_hooks2workspace() {
     cp -a $_PREFIX/hooks/* ${HOOKS_WORKSPACE_DIR}/
 }
 
-# 删除环境
+# 删除环境 
 function remove_env() {
     # 如果挂载的工作区目录存在，则删除它
     if [[ -f ${MOUNT_WORKSPACE_DIR} ]]; then
@@ -140,6 +140,7 @@ function unmount_mnt() {
 # 精简文件系统
 function fstrim_mnt() {
     sync
+    # 释放未使用的块
     fstrim "${WORKSPACE_DIR}/mnt"
 }
 
@@ -190,6 +191,8 @@ function remove_workspace() {
         unmount_dir ${MOUNT_WORKSPACE_DIR}/tmp
     fi
     if [[ -d ${MOUNT_WORKSPACE_DIR}/tmp ]];then
+        # -maxdepth 1 -mindepth 1 表示只删除 tmp 目录下的文件，不删除 tmp 目录本身
+        # --one-file-system 防止跨文件系统删除，确保只在同一个文件系统上删除
         find ${MOUNT_WORKSPACE_DIR}/tmp -maxdepth 1 -mindepth 1 | xargs sudo rm -rf --one-file-system
     fi
 }

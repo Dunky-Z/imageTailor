@@ -211,6 +211,7 @@ if [ $ARCH == "riscv64" ]; then
 
 fi
 
+# TODO：创建环回设备创建了三次，可以优化
 export ROOT=`losetup -f`  # 获取未使用的环回设备
 num=$(echo $ROOT | awk -F 'loop' '{print $2}')  # 获取环回设备编号
 rm -rf "/dev/loop${num}"  # 删除原有设备节点
@@ -218,6 +219,7 @@ mknod $ROOT b 7 $num  # 创建新的设备节点
 export ROOT_FS_UUID=$(uuidgen -r)  # 生成一个新的UUID
 /usr/sbin/losetup -o ${offset} --sizelimit ${sizelimit} ${ROOT} ${NAME}  # 绑定环回设备到镜像文件的第二个分区
 /usr/sbin/mkfs.ext4 -L "rootfs" ${ROOT}  # 格式化第二个分区为ext4并设置卷标
+# -U
 /sbin/tune2fs -U ${ROOT_FS_UUID} ${ROOT}  # 设置UUID
 
 mkdir -p ${WORKSPACE_DIR}/mnt  # 创建mnt目录

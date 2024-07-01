@@ -1,146 +1,217 @@
 <mxfile host="65bd71144e">
     <diagram id="5jgrpywWMY0K0RF4RLlt" name="Page-1">
-        <mxGraphModel dx="823" dy="828" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="695" dy="933" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="13" value="" style="whiteSpace=wrap;html=1;strokeWidth=1;fontSize=29;" vertex="1" parent="1">
+                <mxCell id="13" value="" style="whiteSpace=wrap;html=1;strokeWidth=1;fontSize=29;" parent="1" vertex="1">
                     <mxGeometry width="650" height="480" as="geometry"/>
                 </mxCell>
-                <mxCell id="2" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;fn_make_iso_qcow2&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="2" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;fn_make_iso_qcow2&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="10" y="50" width="190" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="3" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;fn_check_input&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="3" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;fn_check_input&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="70" y="110" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="4" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;make_qcow2_image&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="4" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;make_qcow2_image&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="70" y="300" width="180" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="5" value="检查参数：&lt;br&gt;1. 参数不能为空&lt;br&gt;2. -c 参数制定的路径必须为目录最终保存为变量&amp;nbsp;&lt;span style=&quot;color: rgb(156, 220, 254); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 15px;&quot;&gt;SYS_CUSTOM_CONF_PATH&lt;br&gt;&lt;/span&gt;3. -p 传入产品名称，可能值：openEuler，qcow2，docker,EMB_rootfs。最终保存为变量&lt;span style=&quot;color: rgb(156, 220, 254); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 15px;&quot;&gt;PRODUCT_NAME&lt;br&gt;&lt;/span&gt;" style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                <mxCell id="5" value="检查参数：&lt;br&gt;1. 参数不能为空&lt;br&gt;2. -c 参数制定的路径必须为目录最终保存为变量&amp;nbsp;&lt;span style=&quot;color: rgb(156, 220, 254); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 15px;&quot;&gt;SYS_CUSTOM_CONF_PATH&lt;br&gt;&lt;/span&gt;3. -p 传入产品名称，可能值：openEuler，qcow2，docker,EMB_rootfs。最终保存为变量&lt;span style=&quot;color: rgb(156, 220, 254); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 15px;&quot;&gt;PRODUCT_NAME&lt;br&gt;&lt;/span&gt;" style="whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
                     <mxGeometry x="120" y="140" width="540" height="140" as="geometry"/>
                 </mxCell>
-                <mxCell id="39" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=default;fontSize=14;" edge="1" parent="1" source="10" target="15">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="76" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.042;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="10">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="39.65000000000009" y="640" as="targetPoint"/>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="10" value="根据/config/repo内容配置软件源&lt;br&gt;根据/config/root_pwd内容配置用户密码" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="10" value="根据/config/repo内容配置软件源&lt;br&gt;根据/config/root_pwd内容配置用户密码" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="110" y="340" width="260" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="11" value="mkdliso" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeWidth=1;fontSize=29;fontStyle=1" vertex="1" parent="1">
+                <mxCell id="11" value="mkdliso" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeWidth=1;fontSize=29;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="10" y="10" width="120" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="14" value="" style="whiteSpace=wrap;html=1;strokeWidth=1;fontSize=29;" vertex="1" parent="1">
-                    <mxGeometry x="5" y="640" width="825" height="1940" as="geometry"/>
-                </mxCell>
-                <mxCell id="15" value="create-image" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeWidth=1;fontSize=29;fontStyle=1" vertex="1" parent="1">
+                <mxCell id="15" value="create-image" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeWidth=1;fontSize=29;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="10" y="650" width="200" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="7" value="dev/imageTailor/custom/cfg_qcow2/bin/create-image" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="7" value="dev/imageTailor/custom/cfg_qcow2/bin/create-image" style="text;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="20" y="680" width="310" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="17" value="软件源和密码拼成参数传入&lt;br&gt;create-image -r http://xxxxxxxx&amp;nbsp; &amp;nbsp;-r http://xxxxx -n qcow2 -p password" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeWidth=1;fontSize=14;" vertex="1" parent="1">
-                    <mxGeometry x="170" y="520" width="470" height="30" as="geometry"/>
+                <mxCell id="17" value="软件源和密码拼成参数传入&lt;br&gt;create-image -r http://xxxxxxxx&amp;nbsp; &amp;nbsp;-r http://xxxxx -n qcow2 -p password" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeWidth=1;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="125" y="540" width="470" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="18" value="加载die脚本，用于打印错误消息并退出&lt;br&gt;加载utils脚本" style="whiteSpace=wrap;html=1;strokeWidth=1;fontSize=14;align=left;" vertex="1" parent="1">
-                    <mxGeometry x="30" y="730" width="280" height="60" as="geometry"/>
+                <mxCell id="18" value="1. 加载die脚本，用于打印错误消息并退出&lt;br&gt;2. 加载utils脚本" style="whiteSpace=wrap;html=1;strokeWidth=1;fontSize=14;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="10" y="740" width="280" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="66" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=default;fontSize=14;fontColor=default;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="21" target="22">
+                <mxCell id="66" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=default;fontSize=14;fontColor=default;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="21" target="22" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="21" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;create_workspace&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fontSize=14;align=center;" vertex="1" parent="1">
+                <mxCell id="21" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;create_workspace&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fontSize=14;align=center;" parent="1" vertex="1">
                     <mxGeometry x="5" y="830" width="155" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="22" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 15px; line-height: 20px;&quot;&gt;&lt;span style=&quot;color: #d4d4d4;&quot;&gt;创建目录/&lt;/span&gt;&lt;span style=&quot;color: #9cdcfe;&quot;&gt;tmp/&lt;/span&gt;&lt;span style=&quot;color: rgb(206, 145, 120);&quot;&gt;hmi_build.XXXXXXXX&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeWidth=1;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="22" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 15px; line-height: 20px;&quot;&gt;&lt;span style=&quot;color: #d4d4d4;&quot;&gt;创建目录/&lt;/span&gt;&lt;span style=&quot;color: #9cdcfe;&quot;&gt;tmp/&lt;/span&gt;&lt;span style=&quot;color: rgb(206, 145, 120);&quot;&gt;hmi_build.XXXXXXXX&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=default;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeWidth=1;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="120" y="880" width="340" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="34" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=default;fontSize=14;" edge="1" parent="1" source="23" target="26">
+                <mxCell id="34" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=default;fontSize=14;" parent="1" source="23" target="26" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="47" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=default;fontSize=14;fontColor=default;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="23" target="46">
+                <mxCell id="47" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=default;fontSize=14;fontColor=default;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="23" target="46" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="49" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=default;fontSize=14;fontColor=default;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="23" target="48">
+                <mxCell id="49" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=default;fontSize=14;fontColor=default;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="23" target="48" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="23" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;create_env&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fontSize=14;align=center;" vertex="1" parent="1">
+                <mxCell id="106" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="23" target="24">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;create_env&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fontSize=14;align=center;" parent="1" vertex="1">
                     <mxGeometry x="5" y="940" width="120" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="24" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 15px; line-height: 20px;&quot;&gt;&lt;span style=&quot;color: #d4d4d4;&quot;&gt;创建目录/&lt;/span&gt;&lt;span style=&quot;color: #9cdcfe;&quot;&gt;tmp/&lt;/span&gt;&lt;span style=&quot;color: rgb(206, 145, 120);&quot;&gt;hmi_build.XXXXXXXX/mnt&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeWidth=1;fontSize=14;" vertex="1" parent="1">
-                    <mxGeometry x="75" y="990" width="340" height="30" as="geometry"/>
+                <mxCell id="24" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 15px; line-height: 20px;&quot;&gt;&lt;span style=&quot;color: #d4d4d4;&quot;&gt;创建目录/&lt;/span&gt;&lt;span style=&quot;color: #9cdcfe;&quot;&gt;tmp/&lt;/span&gt;&lt;span style=&quot;color: rgb(206, 145, 120);&quot;&gt;hmi_build.XXXXXXXX/mnt&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=default;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeWidth=1;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="115" y="1010" width="340" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="36" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=default;fontSize=14;" edge="1" parent="1" source="26" target="27">
+                <mxCell id="36" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=default;fontSize=14;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="26" target="27" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="37" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=default;fontSize=14;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="26" target="28">
+                <mxCell id="37" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=default;fontSize=14;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="26" target="28" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="45" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=default;fontSize=14;fontColor=default;" edge="1" parent="1" source="26" target="43">
+                <mxCell id="45" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=default;fontSize=14;fontColor=default;" parent="1" source="26" target="43" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="26" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;run_hook&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fontSize=14;align=center;" vertex="1" parent="1">
-                    <mxGeometry x="105" y="1040" width="90" height="40" as="geometry"/>
+                <mxCell id="26" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;run_hook&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fontSize=14;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="115" y="1060" width="90" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="27" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;copy_hooks2workspace&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fontSize=14;align=center;" vertex="1" parent="1">
-                    <mxGeometry x="195" y="1090" width="210" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="28" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;check_break&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
-                    <mxGeometry x="210" y="1170" width="130" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="40" value="&lt;span style=&quot;color: rgb(212, 212, 212); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 15px; background-color: rgb(31, 31, 31);&quot;&gt;复制hooks到工作空间&lt;br&gt;如果不存在就创建/tmp/hmi_build.xxxxx/hooks&lt;br&gt;&lt;br&gt;&lt;/span&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;" vertex="1" parent="1">
-                    <mxGeometry x="210" y="1120" width="420" height="50" as="geometry"/>
-                </mxCell>
-                <mxCell id="42" value="检查是否需要在运行前进入调试模式" style="text;strokeColor=none;align=left;fillColor=none;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;" vertex="1" parent="1">
-                    <mxGeometry x="215" y="1200" width="390" height="50" as="geometry"/>
-                </mxCell>
-                <mxCell id="43" value="运行所有的hooks脚本" style="text;strokeColor=none;align=left;fillColor=none;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;" vertex="1" parent="1">
-                    <mxGeometry x="175" y="1230" width="390" height="50" as="geometry"/>
-                </mxCell>
-                <mxCell id="46" value="在工作空间创建/tmp/hmi_build.XXXXXXXX/etc&#10;复制宿主机的resolv.conf到工作空间etc/resolv.conf" style="text;strokeColor=none;align=left;fillColor=none;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;" vertex="1" parent="1">
-                    <mxGeometry x="145" y="1300" width="390" height="50" as="geometry"/>
-                </mxCell>
-                <mxCell id="48" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;mount_dir&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fontSize=14;fontColor=default;align=center;" vertex="1" parent="1">
-                    <mxGeometry x="115" y="1390" width="90" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="50" value="在工作空间创建必要的系统目录并挂载必要的系统目录&#10;    mount -t proc none ${MOUNT_WORKSPACE_DIR}/sys&#10;    mount --bind /dev ${MOUNT_WORKSPACE_DIR}/dev&#10;    mount --bind /dev/pts ${MOUNT_WORKSPACE_DIR}/dev/pts&#10;    mount -t sysfs none ${MOUNT_WORKSPACE_DIR}/proc" style="text;strokeColor=none;align=left;fillColor=none;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;" vertex="1" parent="1">
-                    <mxGeometry x="135" y="1420" width="440" height="100" as="geometry"/>
-                </mxCell>
-                <mxCell id="58" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=default;fontSize=14;fontColor=default;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="53" target="56">
+                <mxCell id="107" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="27" target="40">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="61" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=default;fontSize=14;fontColor=default;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="53" target="60">
+                <mxCell id="27" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;copy_hooks2workspace&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fontSize=14;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="1100" width="210" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="108" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="28" target="42">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="53" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;span style=&quot;color: rgb(220, 220, 170); text-align: left;&quot;&gt;run_hook_in_root&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fontSize=14;fontColor=default;align=center;" vertex="1" parent="1">
-                    <mxGeometry x="10" y="1540" width="160" height="40" as="geometry"/>
+                <mxCell id="28" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;check_break&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="230" y="1190" width="130" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="54" value="在根文件系统中运行钩子脚本" style="text;strokeColor=none;align=left;fillColor=none;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;" vertex="1" parent="1">
-                    <mxGeometry x="120" y="1580" width="440" height="40" as="geometry"/>
+                <mxCell id="40" value="1. 复制hooks到工作空间&#10;2. 如果不存在就创建/tmp/hmi_build.xxxxx/hooks" style="text;strokeColor=default;align=left;fillColor=none;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="1150" width="420" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="56" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;copy_hooks2workspace&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fontSize=14;align=center;" vertex="1" parent="1">
-                    <mxGeometry x="120" y="1620" width="210" height="40" as="geometry"/>
+                <mxCell id="42" value="检查是否需要在运行前进入调试模式" style="text;strokeColor=default;align=left;fillColor=none;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="1240" width="390" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="60" value="分别运行以下目录的hooks脚本&#10; /tmp/hmi_build.xxxxx/hooks/pre-install.d&#10; /tmp/hmi_build.xxxxx/hooks/install.d&#10; /tmp/hmi_build.xxxxx/hooks/post_install.d" style="text;strokeColor=none;align=left;fillColor=none;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;" vertex="1" parent="1">
-                    <mxGeometry x="140" y="1680" width="440" height="90" as="geometry"/>
+                <mxCell id="43" value="运行所有的hooks脚本" style="text;strokeColor=default;align=left;fillColor=none;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="185" y="1290" width="155" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="62" value="卸载挂载的工作区目录&#10;/tmp/hmi_build.XXXXXXXX/mnt&#10;/tmp/hmi_build.XXXXXXXX/mnt/boot" style="text;strokeColor=none;align=left;fillColor=none;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;" vertex="1" parent="1">
-                    <mxGeometry x="130" y="1800" width="440" height="70" as="geometry"/>
+                <mxCell id="46" value="1. 在工作空间创建/tmp/hmi_build.XXXXXXXX/etc&#10;2. 复制宿主机的resolv.conf到工作空间etc/resolv.conf" style="text;strokeColor=default;align=left;fillColor=none;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="175" y="1360" width="390" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="64" value="移动/tmp/hmi_build.XXXXXXXX/mnt目录&#10;到/tmp/hmi_build.XXXXXXXX/built目录" style="text;strokeColor=none;align=left;fillColor=none;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;" vertex="1" parent="1">
-                    <mxGeometry x="30" y="1900" width="350" height="70" as="geometry"/>
-                </mxCell>
-                <mxCell id="68" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=default;fontSize=14;fontColor=default;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="67" target="62">
+                <mxCell id="109" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="48" target="50">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="67" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;unmount_mnt&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fontSize=14;fontColor=default;align=center;" vertex="1" parent="1">
-                    <mxGeometry x="10" y="1760" width="130" height="40" as="geometry"/>
+                <mxCell id="48" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;mount_dir&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fontSize=14;fontColor=default;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="125" y="1430" width="90" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="69" value="/usr/bin/qemu-img create ${NAME} ${IMG_SIZE}G &#10;创建 3G大小的镜像文件，文件名为由开始的-n参数传入，为qcow2.img" style="text;strokeColor=none;align=left;fillColor=none;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;" vertex="1" parent="1">
-                    <mxGeometry x="30" y="1980" width="500" height="70" as="geometry"/>
+                <mxCell id="50" value="在工作空间创建必要的系统目录并挂载必要的系统目录&#10;    mount -t proc none ${MOUNT_WORKSPACE_DIR}/sys&#10;    mount --bind /dev ${MOUNT_WORKSPACE_DIR}/dev&#10;    mount --bind /dev/pts ${MOUNT_WORKSPACE_DIR}/dev/pts&#10;    mount -t sysfs none ${MOUNT_WORKSPACE_DIR}/proc" style="text;strokeColor=default;align=left;fillColor=none;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="230" y="1480" width="440" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="70" value="/usr/sbin/parted ${NAME} -- mklabel msdos/usr/sbin/parted&#10;使用msdos分区表&#10;&#10;/usr/sbin/parted ${NAME} -- mkpart primary ext4 0% 512MB&#10;/usr/sbin/parted ${NAME} -- mkpart primary ext4 512MB 100%&#10;分别创建两个分区表一个大小为 512MB，另一个占用剩余的磁盘空间。" style="text;strokeColor=none;align=left;fillColor=none;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;" vertex="1" parent="1">
-                    <mxGeometry x="30" y="2060" width="460" height="130" as="geometry"/>
+                <mxCell id="58" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=default;fontSize=14;fontColor=default;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="53" target="56" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="72" value="创建环回设备，然后绑定环回设备到刚刚创建的qcow2.img&#10;/usr/sbin/losetup -o ${offset} --sizelimit ${sizelimit} ${BOOT} ${NAME}&#10;绑定环回设备到镜像文件的第一个分区&#10;&#10;格式化第一个分区为ext4&#10;/usr/sbin/mkfs.ext4 ${BOOT}  &#10;获取第二个分区的起始位置&#10;offset=`fdisk -l ${NAME} | grep &quot;${NAME}2&quot; | awk '{print $2}'` &#10;获取第二个分区的大小&#10;sizelimit=`fdisk -l ${NAME} | grep &quot;${NAME}2&quot; | awk '{print $3}'` &#10;计算第二个分区的大小（字节）&#10;sizelimit=`echo &quot;($sizelimit - $offset)*512&quot; | bc`  &#10;计算第二个分区的起始位置（字节）&#10;offset=`echo &quot;${offset}*512&quot; | bc` &#10;" style="text;strokeColor=none;align=left;fillColor=none;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;" vertex="1" parent="1">
-                    <mxGeometry x="30" y="2190" width="670" height="250" as="geometry"/>
+                <mxCell id="61" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=default;fontSize=14;fontColor=default;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="53" target="60" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;span style=&quot;color: rgb(220, 220, 170); text-align: left;&quot;&gt;run_hook_in_root&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fontSize=14;fontColor=default;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="10" y="1586" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;copy_hooks2workspace&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fontSize=14;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="130" y="1650" width="210" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" value="分别运行以下目录的hooks脚本&#10; /tmp/hmi_build.xxxxx/hooks/pre-install.d&#10; /tmp/hmi_build.xxxxx/hooks/install.d&#10; /tmp/hmi_build.xxxxx/hooks/post_install.d" style="text;strokeColor=default;align=left;fillColor=none;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="1710" width="300" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" value="卸载挂载的工作区目录&#10;/tmp/hmi_build.XXXXXXXX/mnt&#10;/tmp/hmi_build.XXXXXXXX/mnt/boot" style="text;strokeColor=default;align=left;fillColor=none;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="130" y="1846" width="260" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="64" value="1. 移动/tmp/hmi_build.XXXXXXXX/mnt目录到/tmp/hmi_build.XXXXXXXX/built目录&#10;2. qemu-img创建 3G大小的镜像文件，文件名为由开始的-n参数传入，为qcow2.img&#10;3. 使用msdos分区表&#10;4. 分别创建两个分区表一个大小为 512MB，另一个占用剩余的磁盘空间。&#10;5. 获取环回设备，删除原有设备节点，创建环回设备节点，然后绑定环回设备到刚刚创建的qcow2.img&#10;6. 获取未使用的环回设备，获取原有设备节点，删除原有设备节点(有点多余)&#10;7. 绑定环回设备到刚刚创建的镜像qcow2.img的第一个分区&#10;8. 格式化第一个分区为ext4&#10;9. 获取第二个分区的起始位置&#10;10. 获取第二个分区的大小&#10;11. 计算第二个分区的大小（字节）&#10;12. 计算第二个分区的起始位置（字节）&#10;13. 生成新的UUID &#10;14. 为环回设备设置新的UUID" style="text;strokeColor=default;align=left;fillColor=none;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="30" y="1970" width="520" height="300" as="geometry"/>
+                </mxCell>
+                <mxCell id="68" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=default;fontSize=14;fontColor=default;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="67" target="62" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="67" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;unmount_mnt&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fontSize=14;fontColor=default;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="10" y="1806" width="130" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="77" value="工作空间创建boot目录，并设置权限755&#10;/tmp/hmi_build.xxxxx/mnt/boot&#10;将boot分区挂载到环回设备&#10;" style="text;strokeColor=none;align=left;fillColor=none;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="35" y="2460" width="670" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="78" value="fstrim_mnt  # 修剪mnt目录&#10;unmount_mnt  # 释放/mnt目录&#10;remove_env  # 删除环境&#10;/usr/sbin/losetup -D  # 解除所有环回设备&#10;" style="text;strokeColor=none;align=left;fillColor=none;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="30" y="2590" width="670" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="97" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="79" target="80">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="79" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;fstrim_mnt&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="3370" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="80" value="fstrim 修剪文件系统，释放未使用的块" style="text;strokeColor=default;align=left;fillColor=none;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="153.75" y="3420" width="292.5" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="81" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;div style=&quot;line-height: 20px;&quot;&gt;&lt;div style=&quot;line-height: 20px;&quot;&gt;&lt;div style=&quot;line-height: 20px;&quot;&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;mount_dir&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+                    <mxGeometry x="20" y="2700" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="83" value="在工作空间创建必要的系统目录并挂载必要的系统目录&#10;    mount -t proc none ${MOUNT_WORKSPACE_DIR}/sys&#10;    mount --bind /dev ${MOUNT_WORKSPACE_DIR}/dev&#10;    mount --bind /dev/pts ${MOUNT_WORKSPACE_DIR}/dev/pts&#10;    mount -t sysfs none ${MOUNT_WORKSPACE_DIR}/proc" style="text;strokeColor=none;align=left;fillColor=none;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="90" y="2740" width="440" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="85" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=default;fontSize=14;fontColor=default;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="87" target="89">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="86" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=default;fontSize=14;fontColor=default;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="87" target="90">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="87" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;span style=&quot;color: rgb(220, 220, 170); text-align: left;&quot;&gt;run_hook_in_root&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fontSize=14;fontColor=default;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="35" y="2860" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="88" value="在根文件系统中运行钩子脚本" style="text;strokeColor=none;align=left;fillColor=none;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="145" y="2900" width="220" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="89" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;copy_hooks2workspace&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fontSize=14;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="145" y="2940" width="210" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="90" value="分别运行以下目录的hooks脚本&#10; /tmp/hmi_build.xxxxx/hooks/pre-install.d&#10; /tmp/hmi_build.xxxxx/hooks/install.d&#10; /tmp/hmi_build.xxxxx/hooks/post_install.d" style="text;strokeColor=none;align=left;fillColor=none;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="165" y="3000" width="310" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="95" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="91" target="92">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="91" value="&lt;br&gt;&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;remove_workspace&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+                    <mxGeometry x="45" y="3090" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="104" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="92" target="94">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="92" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 15px; line-height: 20px;&quot;&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;run_hook&lt;/span&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+                    <mxGeometry x="145" y="3170" width="85" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="94" value="1. 分别运行以下目录的hooks脚本&#10; /tmp/hmi_build.xxxxx/hooks/cleanup.d&#10;2. 删除/tmp工作目录" style="text;strokeColor=default;align=left;fillColor=none;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;labelBorderColor=none;shadow=0;glass=0;" vertex="1" parent="1">
+                    <mxGeometry x="225" y="3220" width="310" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="103" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="98" target="102">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="98" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;div style=&quot;line-height: 20px;&quot;&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;unmount_mnt&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+                    <mxGeometry x="45" y="3480" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="101" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="99" target="100">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="99" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;JetBrains Mono&amp;quot;, 微软雅黑, Consolas, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 15px; line-height: 20px;&quot;&gt;&lt;div style=&quot;line-height: 20px;&quot;&gt;&lt;div style=&quot;line-height: 20px;&quot;&gt;&lt;span style=&quot;color: #dcdcaa;&quot;&gt;remove_env&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+                    <mxGeometry x="45" y="3640" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="100" value="1. 如果工作目录还存在，删除工作目录&#10;2. 卸载所有环回设备" style="text;strokeColor=default;align=left;fillColor=none;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="143.75" y="3700" width="292.5" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="102" value="卸载挂载的工作区目录&#10;/tmp/hmi_build.XXXXXXXX/mnt&#10;/tmp/hmi_build.XXXXXXXX/mnt/boot" style="text;strokeColor=default;align=left;fillColor=none;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=14;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="130" y="3530" width="260" height="70" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
